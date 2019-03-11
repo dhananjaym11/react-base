@@ -5,6 +5,7 @@ import './App.css';
 import HomeContainer from './containers/home/Home';
 import AboutContainer from './containers/about/About';
 import UsersContainer from './containers/users/Users';
+import UserContainer from './containers/users/User';
 import Layout from './hoc/layout/Layout';
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
               <Route exact path="/" component={HomeContainer} />
               <Route exact path="/about" component={AboutContainer} />
               <Route exact path="/users" component={UsersContainer} />
+              <Route exact path="/users/:username" component={UserContainer} />
             </Switch>
           </Layout>
         </BrowserRouter>

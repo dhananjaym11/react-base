@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import usersService from '../../core/services/users.service';
-import HomeList from '../../components/home/HomeList';
+import UserList from '../../components/users/UserList';
 
 class UsersContainer extends Component {
 
@@ -15,7 +15,7 @@ class UsersContainer extends Component {
             <div>
                 <h1>Users</h1>
                 {this.props.data.result ?
-                    <HomeList list={this.props.data.result} /> : null
+                    <UserList list={this.props.data.result} /> : null
                 }
             </div>
         )
@@ -25,7 +25,7 @@ class UsersContainer extends Component {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         loadDashboard: () => {
-            dispatch(usersService.load())
+            dispatch(usersService.loadUsers())
         }
     }
 }

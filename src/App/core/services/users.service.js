@@ -2,7 +2,7 @@ import axios from 'axios';
 import { loadUsers, loadUsersSuccess, loadUsersFailed } from '../actions';
 
 export default {
-    load: () => {
+    loadUsers: () => {
         return (dispatch) => {
             dispatch(loadUsers())
             return axios.get('https://api.github.com/users?since=0')
