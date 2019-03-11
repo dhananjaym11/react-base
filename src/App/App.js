@@ -5,7 +5,7 @@ import './App.css';
 import HomeContainer from './containers/home/Home';
 import AboutContainer from './containers/about/About';
 import UsersContainer from './containers/users/Users';
-import UserContainer from './containers/users/User';
+import UserContainer from './containers/user/User';
 import Layout from './hoc/layout/Layout';
 
 class App extends Component {

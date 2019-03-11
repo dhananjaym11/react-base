@@ -1,4 +1,4 @@
-import { LOAD_USER, LOAD_USER_SUCCESS, LOAD_USER_ERROR } from "../constants";
+import { LOAD_USER, LOAD_USER_SUCCESS, LOAD_USER_ERROR, REMOVE_USER } from "../constants";
 
 const loadUser = () => ({
     type: LOAD_USER,
@@ -15,4 +15,9 @@ const loadUserFailed = (err) => ({
     error: err
 });
 
-export { loadUser, loadUserSuccess, loadUserFailed };
+const removeUser = () => ({
+    type: REMOVE_USER,
+    payload: null
+});
+
+export { loadUser, loadUserSuccess, loadUserFailed, removeUser };

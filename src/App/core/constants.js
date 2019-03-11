@@ -12,3 +12,4 @@ export const LOAD_USERS_ERROR = 'LOAD_USERS_ERROR';
 export const LOAD_USER = 'LOAD_USER';
 export const LOAD_USER_SUCCESS = 'LOAD_USER_SUCCESS';
 export const LOAD_USER_ERROR = 'LOAD_USER_ERROR';
+export const REMOVE_USER = 'REMOVE_USER';

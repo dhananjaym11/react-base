@@ -7,7 +7,7 @@ import UserList from '../../components/users/UserList';
 class UsersContainer extends Component {
 
     componentDidMount() {
-        this.props.loadDashboard();
+        this.props.loadUsers();
     }
 
     render() {
@@ -24,7 +24,7 @@ class UsersContainer extends Component {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        loadDashboard: () => {
+        loadUsers: () => {
             dispatch(usersService.loadUsers())
         }
     }
