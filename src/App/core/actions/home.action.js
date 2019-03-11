@@ -5,14 +5,14 @@ const loadDashboard = () => ({
     payload: null
 });
 
-const dashboardLoaded = (response) => ({
+const loadDashboardLoaded = (response) => ({
     type: LOAD_DASHBOARD_SUCCESS,
     response
 });
 
-const dashabordFailed = (err) => ({
+const loadDashabordFailed = (err) => ({
     type: LOAD_DASHBOARD_ERROR,
     error: err
 });
 
-export { loadDashboard, dashabordFailed, dashboardLoaded };
+export { loadDashboard, loadDashabordFailed, loadDashboardLoaded };

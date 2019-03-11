@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import homeService from '../../core/services/home.service';
+import usersService from '../../core/services/users.service';
+import HomeList from '../../components/home/HomeList';
 
-class HomeContainer extends Component {
+class UsersContainer extends Component {
 
     componentDidMount() {
         this.props.loadDashboard();
@@ -12,9 +13,9 @@ class HomeContainer extends Component {
     render() {
         return (
             <div>
-                <h1>Home</h1>
+                <h1>Users</h1>
                 {this.props.data.result ?
-                    this.props.data.result.key : null
+                    <HomeList list={this.props.data.result} /> : null
                 }
             </div>
         )
@@ -24,15 +25,15 @@ class HomeContainer extends Component {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         loadDashboard: () => {
-            dispatch(homeService.load())
+            dispatch(usersService.load())
         }
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        data: state.homeReducer
+        data: state.usersReducer
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);

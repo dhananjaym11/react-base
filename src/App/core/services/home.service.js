@@ -1,13 +1,13 @@
 import axios from 'axios';
-import { loadDashboard, dashboardLoaded, dashabordFailed } from '../actions';
+import { loadDashboard, loadDashboardLoaded, loadDashabordFailed } from '../actions';
 
 export default {
     load: () => {
         return (dispatch) => {
             dispatch(loadDashboard())
-            return axios.get('http://localhost:3000/api/home.json')
-                .then(response => dispatch(dashboardLoaded(response.data)))
-                .catch(err => dispatch(dashabordFailed(err)))
+            return axios.get('http://localhost:3000/home.json')
+                .then(response => dispatch(loadDashboardLoaded(response.data)))
+                .catch(err => dispatch(loadDashabordFailed(err)))
         }
     }
 }
