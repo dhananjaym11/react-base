@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from "react-router-dom";
 
 import './User.css';
 import userService from '../../core/services/user.service';
 import { removeUser } from '../../core/actions';
+import UserDetails from '../../components/user/UserDetails';
 
 class UserContainer extends Component {
 
@@ -13,30 +15,22 @@ class UserContainer extends Component {
     }
 
     componentWillUnmount() {
-        this.props.removeUsers()
+        this.props.removeUsers();
     }
 
     render() {
-        if (this.props.data.result) {
-            const user = this.props.data.result;
-            return (
-                <div className="user-details">
-                    <h1>{user.name}</h1>
-                    <div className="clearfix">
-                        <img src={user.avatar_url} alt={user.name} className="float-left" />
-                        <div className="user-info">
-                            <h4>Type : {user.type}</h4>
-                            <h4>Location : {user.location}</h4>
-                            <h4>Company: {user.company} </h4>
-                        </div>
-                    </div>
-                </div>
-            )
-        } else {
-            return (
-                <p>Loaing...</p>
-            )
-        }
+        return (
+            <div>
+                <h1>
+                    <Link to="/users">
+                        <i class="fa fa-long-arrow-left"></i>
+                    </Link>
+                    User Details </h1>
+                {this.props.data.result ?
+                    <UserDetails details={this.props.data.result} /> : null
+                }
+            </div>
+        )
     }
 }
 
