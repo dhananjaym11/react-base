@@ -1,24 +1,67 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class HeroContainer extends Component {
+import * as actions from '../../core/actions';
 
-    render() {
+class HeroContainer extends Component {
+    state = {
+        hero: {}
+    }
+
+    componentDidMount() {
         const id = parseInt(this.props.match.params.id);
         if (this.props.heroes.result && this.props.heroes.result.length) {
             const hero = this.props.heroes.result.find(hero => hero.id === id);
-            return (
+            this.setState({
+                hero: hero
+            })
+        }
+    }
+
+    handleNameChange = (e) => {
+        const hero = { ...this.state.hero };
+        hero.name = e.target.value
+        this.setState({
+            hero: hero
+        })
+    }
+
+    saveChanges = () => {
+        const updatedHero = { ...this.state.hero };
+        const heroes = [...this.props.heroes.result];
+        const updatedHeroIndex = heroes.findIndex(hero => hero.id === updatedHero.id);
+        heroes[updatedHeroIndex] = updatedHero;
+        this.props.updateHeroes(heroes);
+        this.props.history.push('/heroes');
+    }
+
+    render() {
+        let heroDetails = (
+            <div>
+                <h3>Loading</h3>
+            </div>
+        );
+
+        if (this.state.hero.id) {
+            const hero = this.state.hero;
+
+            heroDetails = (
                 <div>
-                    <h1>{hero.name}</h1>
-                </div>
-            )
-        } else {
-            return (
-                <div>
-                    <h1>Hero</h1>
+                    <h1>{hero.name} Details</h1>
+                    <h4>Id: {hero.id}</h4>
+                    <h4>Name:
+                        <input type="text" value={hero.name} onChange={this.handleNameChange} />
+                    </h4>
+                    <button onClick={this.saveChanges} >Save</button>
                 </div>
             )
         }
+        return (
+            <>
+                {heroDetails}
+            </>
+        )
+
     }
 }
 
@@ -28,4 +71,12 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps)(HeroContainer);
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        updateHeroes: (heroes) => {
+            dispatch(actions.updateHeroes(heroes))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeroContainer);

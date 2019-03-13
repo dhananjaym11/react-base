@@ -1,4 +1,4 @@
-import { LOAD_HEROES, LOAD_HEROES_SUCCESS, LOAD_HEROES_ERROR } from "../constants";
+import { LOAD_HEROES, LOAD_HEROES_SUCCESS, LOAD_HEROES_ERROR, UPDATE_HEROES } from "../constants";
 
 const INITIAL_STATE = {
     loading: false,
@@ -20,6 +20,8 @@ const reducer = (state = INITIAL_STATE, action) => {
             return { ...state, loading: false, result: action.response };
         case LOAD_HEROES_ERROR:
             return { ...state, loading: false, error: action.error };
+        case UPDATE_HEROES:
+            return { ...state, loading: false, result: action.response };
         default:
             return state;
     }
