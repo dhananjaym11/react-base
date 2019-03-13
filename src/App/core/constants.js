@@ -13,3 +13,8 @@ export const LOAD_USER = 'LOAD_USER';
 export const LOAD_USER_SUCCESS = 'LOAD_USER_SUCCESS';
 export const LOAD_USER_ERROR = 'LOAD_USER_ERROR';
 export const REMOVE_USER = 'REMOVE_USER';
+
+/* --- HEROES --- */
+export const LOAD_HEROES = 'LOAD_HEROES';
+export const LOAD_HEROES_SUCCESS = 'LOAD_HEROES_SUCCESS';
+export const LOAD_HEROES_ERROR = 'LOAD_HEROES_ERROR';
