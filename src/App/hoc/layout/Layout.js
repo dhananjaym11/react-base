@@ -4,7 +4,7 @@ import Header from '../../components/header/Header';
 
 const Layout = (props) => (
     <>
-        <Header />
+        <Header isAuthenticated={props.isAuthenticated} />
         <div className="container">
             {props.children}
         </div>

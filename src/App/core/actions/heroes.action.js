@@ -1,9 +1,4 @@
-import { LOAD_HEROES, LOAD_HEROES_SUCCESS, LOAD_HEROES_ERROR, UPDATE_HEROES } from "../constants";
-
-const loadHeroes = () => ({
-    type: LOAD_HEROES,
-    payload: null
-});
+import { LOAD_HEROES_SUCCESS, LOAD_HEROES_ERROR, UPDATE_HEROES } from "../constants";
 
 const loadHeroesSuccess = (response) => ({
     type: LOAD_HEROES_SUCCESS,
@@ -20,4 +15,4 @@ const updateHeroes = (response) => ({
     response
 });
 
-export { loadHeroes, loadHeroesSuccess, loadHeroesFailed, updateHeroes };
+export { loadHeroesSuccess, loadHeroesFailed, updateHeroes };

@@ -9,10 +9,6 @@ class HeroesContainer extends Component {
         name: ''
     }
 
-    componentDidMount() {
-        this.props.loadHeroes();
-    }
-
     handleNameChange = (e) => {
         this.setState({
             name: e.target.value
@@ -36,7 +32,6 @@ class HeroesContainer extends Component {
         const heroes = [...this.props.heroes.result];
         const delteHeroIndex = heroes.findIndex(hero => hero.id === id);
         heroes.splice(delteHeroIndex, 1);
-        debugger
         this.props.updateHeroes(heroes);
     }
 
@@ -53,7 +48,7 @@ class HeroesContainer extends Component {
                         <Link to={`heroes/${hero.id}`}>
                             <span className="badge">{hero.id}</span> {hero.name}
                         </Link>
-                        <button classNam="button-btn" title="delete hero" onClick={() => this.handleDeleteHero(hero.id)}>x</button>
+                        <button className="button-btn" title="delete hero" onClick={() => this.handleDeleteHero(hero.id)}>x</button>
                     </div>
                 )) : null}
             </div>
@@ -63,9 +58,6 @@ class HeroesContainer extends Component {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        loadHeroes: () => {
-            dispatch(actions.loadHeroes())
-        },
         updateHeroes: (heroes) => {
             dispatch(actions.updateHeroes(heroes))
         }

@@ -1,7 +1,6 @@
-import { LOAD_HEROES, LOAD_HEROES_SUCCESS, LOAD_HEROES_ERROR, UPDATE_HEROES } from "../constants";
+import { LOAD_HEROES_SUCCESS, LOAD_HEROES_ERROR, UPDATE_HEROES } from "../constants";
 
 const INITIAL_STATE = {
-    loading: false,
     error: null,
     result: [
         { id: 1, name: 'Iron Man' },
@@ -14,14 +13,12 @@ const INITIAL_STATE = {
 
 const reducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case LOAD_HEROES:
-            return { ...state, loading: true };
         case LOAD_HEROES_SUCCESS:
-            return { ...state, loading: false, result: action.response };
+            return { ...state, result: action.response };
         case LOAD_HEROES_ERROR:
-            return { ...state, loading: false, error: action.error };
+            return { ...state, error: action.error };
         case UPDATE_HEROES:
-            return { ...state, loading: false, result: action.response };
+            return { ...state, result: action.response };
         default:
             return state;
     }
