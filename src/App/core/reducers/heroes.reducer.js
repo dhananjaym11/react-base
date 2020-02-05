@@ -3,11 +3,11 @@ import { LOAD_HEROES_SUCCESS, LOAD_HEROES_ERROR, UPDATE_HEROES } from "../consta
 const INITIAL_STATE = {
     error: null,
     result: [
-        { id: 1, name: 'Iron Man' },
-        { id: 2, name: 'Hulk' },
-        { id: 3, name: 'Bat Man' },
-        { id: 4, name: 'Thor' },
-        { id: 5, name: 'Super Man' },
+        { id: 1, name: 'Iron Man', completed: false },
+        { id: 2, name: 'Hulk', completed: false  },
+        { id: 3, name: 'Bat Man', completed: true  },
+        { id: 4, name: 'Thor', completed: false  },
+        { id: 5, name: 'Super Man', completed: false  },
     ]
 }
 

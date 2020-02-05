@@ -6,7 +6,8 @@ import * as actions from '../../core/actions';
 
 class HeroesContainer extends Component {
     state = {
-        name: ''
+        name: '',
+        visibilityFilter: 'SHOW_ALL'
     }
 
     handleNameChange = (e) => {
@@ -19,7 +20,8 @@ class HeroesContainer extends Component {
         const lastMemberId = this.props.heroes.result.length ? this.props.heroes.result[this.props.heroes.result.length - 1].id : 0;
         const newHero = {
             id: lastMemberId + 1,
-            name: this.state.name
+            name: this.state.name,
+            completed: false
         }
         const heroes = [...this.props.heroes.result, newHero];
         this.props.updateHeroes(heroes);
@@ -35,6 +37,12 @@ class HeroesContainer extends Component {
         this.props.updateHeroes(heroes);
     }
 
+    changeVisibilityFilter = (visibilityFilter) => {
+        this.setState({
+            visibilityFilter: visibilityFilter
+        })
+    }
+
     render() {
         return (
             <div>
@@ -43,7 +51,29 @@ class HeroesContainer extends Component {
                     <input type="text" value={this.state.name} onChange={this.handleNameChange} />
                     <button onClick={this.handleAddNewHero}>Add</button>
                 </div>
-                {this.props.heroes.result ? this.props.heroes.result.map(hero => (
+                <div>
+                    Show: 
+                    <ul className="show-list">
+                        <li 
+                        className={this.state.visibilityFilter === 'SHOW_ALL' ? 'active' : ''} 
+                        onClick={()=>this.changeVisibilityFilter('SHOW_ALL')}>All</li>
+                        <li 
+                        className={this.state.visibilityFilter === 'SHOW_ACTIVE' ? 'active' : ''} 
+                         onClick={()=>this.changeVisibilityFilter('SHOW_ACTIVE')}>Active</li>
+                        <li 
+                        className={this.state.visibilityFilter === 'SHOW_COMPLETED' ? 'active' : ''} 
+                        onClick={()=>this.changeVisibilityFilter('SHOW_COMPLETED')}>Completed</li>
+                    </ul>
+                </div>
+                {this.props.heroes.result ? this.props.heroes.result.filter(hero=>{
+                    if(this.state.visibilityFilter === 'SHOW_COMPLETED') {
+                        return hero.completed;
+                    } else if (this.state.visibilityFilter === 'SHOW_ACTIVE') {
+                        return !hero.completed;
+                    } else {
+                        return hero;
+                    }
+                }).map(hero => (
                     <div key={hero.id}>
                         <Link to={`heroes/${hero.id}`}>
                             <span className="badge">{hero.id}</span> {hero.name}

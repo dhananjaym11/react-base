@@ -26,6 +26,14 @@ class HeroContainer extends Component {
         })
     }
 
+    handleCheckboxChange = (e) => {
+        const hero = { ...this.state.hero };
+        hero.completed = e.target.checked
+        this.setState({
+            hero: hero
+        })        
+    }
+
     saveChanges = () => {
         const updatedHero = { ...this.state.hero };
         const heroes = [...this.props.heroes.result];
@@ -33,6 +41,10 @@ class HeroContainer extends Component {
         heroes[updatedHeroIndex] = updatedHero;
         this.props.updateHeroes(heroes);
         this.props.history.push('/heroes');
+    }
+
+    cancelChanges = () => {
+        this.props.history.push('/heroes');        
     }
 
     render() {
@@ -52,7 +64,11 @@ class HeroContainer extends Component {
                     <h4>Name:
                         <input type="text" value={hero.name} onChange={this.handleNameChange} />
                     </h4>
+                    <h4>Completed:
+                        <input type="checkbox" checked={hero.completed} onChange={this.handleCheckboxChange} />
+                    </h4>
                     <button onClick={this.saveChanges} >Save</button>
+                    <button onClick={this.cancelChanges} >Cancel</button>
                 </div>
             )
         }

@@ -18,3 +18,11 @@ ol, ul {
   margin: 0;
   list-style: none;
 }
+
+.active {
+  color: red
+}
+.show-list li {
+    display: inline-block;
+    margin-right: 7px;
+}
