@@ -6,6 +6,7 @@ import './App.css';
 import HomeContainer from './containers/home/Home';
 import LoginContainer from './containers/login/Login';
 import LogoutContainer from './containers/login/Logout';
+import HooksContainer from './containers/hooks/Hooks'
 import HeroesContainer from './containers/heroes/Heroes';
 import HeroContainer from './containers/hero/Hero';
 import UsersContainer from './containers/users/Users';
@@ -22,6 +23,7 @@ class App extends Component {
               <Redirect to="/login" /> : null}
             <Switch>
               <Route exact path="/" component={HomeContainer} />
+              <Route exact path="/hooks" component={HooksContainer} />
               <Route exact path="/login" component={LoginContainer} />
               <Route exact path="/logout" component={LogoutContainer} />
               <Route exact path="/heroes" component={HeroesContainer} />

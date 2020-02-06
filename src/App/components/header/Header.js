@@ -18,8 +18,8 @@ const Header = (props) => (
                         </Link>
                     </li>
                     <li>
-                        <Link to="/logout">
-                            <span>Logout</span>
+                        <Link to="/hooks">
+                            <span>Hooks</span>
                         </Link>
                     </li>
                     <li>
@@ -30,6 +30,11 @@ const Header = (props) => (
                     <li>
                         <Link to="/users">
                             <span>Users</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/logout">
+                            <span>Logout</span>
                         </Link>
                     </li>
                 </ul>
