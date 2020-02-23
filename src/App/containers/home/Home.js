@@ -6,16 +6,25 @@ import homeService from '../../core/services/home.service';
 class HomeContainer extends Component {
 
     componentDidMount() {
-        this.props.loadDashboard();
+        this.myInput.focus();
+    }
+
+    getData = () => {
+        this.props.loadDashboard();        
     }
 
     render() {
         return (
             <div>
                 <h1>Home</h1>
+                <button onClick={this.getData}>Get Data</button>&nbsp;
                 {this.props.data.result ?
                     this.props.data.result.key : null
                 }
+                <div>
+                    <br/>
+                    <input ref={input => this.myInput = input } name="home-input" />
+                </div>
             </div>
         )
     }
