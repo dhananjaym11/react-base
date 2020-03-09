@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import homeService from '../../core/services/home.service';
+
+const PageTitle = styled.h1`
+    font-size: 30px;
+    color: blue;
+`
 
 class HomeContainer extends Component {
 
@@ -10,20 +16,20 @@ class HomeContainer extends Component {
     }
 
     getData = () => {
-        this.props.loadDashboard();        
+        this.props.loadDashboard();
     }
 
     render() {
         return (
             <div>
-                <h1>Home</h1>
+                <PageTitle>Home</PageTitle>
                 <button onClick={this.getData}>Get Data</button>&nbsp;
                 {this.props.data.result ?
                     this.props.data.result.key : null
                 }
                 <div>
-                    <br/>
-                    <input ref={input => this.myInput = input } name="home-input" />
+                    <br />
+                    <input ref={input => this.myInput = input} name="home-input" />
                 </div>
             </div>
         )
