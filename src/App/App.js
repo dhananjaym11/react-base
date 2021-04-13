@@ -13,6 +13,7 @@ import HeroContainer from './containers/hero/Hero';
 import UsersContainer from './containers/users/Users';
 import UserContainer from './containers/user/User';
 import Layout from './hoc/layout/Layout';
+import StudnetsContainer from './containers/students/Students';
 
 class App extends Component {
   render() {
@@ -32,6 +33,7 @@ class App extends Component {
               <Route exact path="/heroes/:id" component={HeroContainer} />
               <Route exact path="/users" component={UsersContainer} />
               <Route exact path="/users/:username" component={UserContainer} />
+              <Route exact path="/students" component={StudnetsContainer} />
             </Switch>
           </Layout>
         </BrowserRouter>

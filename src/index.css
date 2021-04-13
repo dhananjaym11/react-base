@@ -26,3 +26,7 @@ ol, ul {
     display: inline-block;
     margin-right: 7px;
 }
+
+table {
+  width: 100%
+}

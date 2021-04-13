@@ -6,7 +6,7 @@ import homeService from '../../core/services/home.service';
 
 const PageTitle = styled.h1`
     font-size: 30px;
-    color: blue;
+    color: ${({ isActive }) => isActive ? 'blue' : 'red'};
 `
 
 class HomeContainer extends Component {
@@ -22,7 +22,7 @@ class HomeContainer extends Component {
     render() {
         return (
             <div>
-                <PageTitle>Home</PageTitle>
+                <PageTitle isActive={true}>Home</PageTitle>
                 <button onClick={this.getData}>Get Data</button>&nbsp;
                 {this.props.data.result ?
                     this.props.data.result.key : null

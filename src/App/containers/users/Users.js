@@ -7,7 +7,9 @@ import UserList from '../../components/users/UserList';
 class UsersContainer extends Component {
 
     componentDidMount() {
-        this.props.loadUsers();
+        if(this.props.data.result === null) {
+            this.props.loadUsers();
+        }
     }
 
     render() {

@@ -38,6 +38,11 @@ const Header = (props) => (
                         </Link>
                     </li>
                     <li>
+                        <Link to="/students">
+                            <span>Students</span>
+                        </Link>
+                    </li>
+                    <li>
                         <Link to="/logout">
                             <span>Logout</span>
                         </Link>
