@@ -2,14 +2,30 @@ import React, { Component } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
+const fields = {
+    name: '',
+    email: '',
+    address: '',
+    standard: '',
+    stream: '',
+    selectedId: -1,
+}
+
 class StudentsAdd extends Component {
 
-    state = {
-        name: '',
-        email: '',
-        address: '',
-        standard: '',
-        stream: '',
+    state = { ...fields};
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if(nextProps.selectedId !== prevState.selectedId) {
+            const selectedId = nextProps.selectedId;
+            if(selectedId>-1) {
+                const index = nextProps.list.findIndex(result => result.id === selectedId);
+                return {...nextProps.list[index], selectedId };
+            } else {
+                return { ...fields };
+            }
+        }
+        return null;
     }
 
     changeHandler = (e) => {
@@ -20,13 +36,6 @@ class StudentsAdd extends Component {
 
     onSubmitClick = () => {
         this.props.onSubmitClick(this.state);
-        this.setState({
-            name: '',
-            email: '',
-            address: '',
-            standard: '',
-            stream: '',
-        });
     }
 
     render() {

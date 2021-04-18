@@ -8,11 +8,13 @@ import StudentsAdd from '../../components/students/Student-add';
 class StudentsContainer extends Component {
     state = {
         showModal: false,
+        selectedId: -1,
     }
 
     onAddClick = () => {
         this.setState({
-            showModal: true
+            showModal: true,
+            selectedId: -1
         })
     }
 
@@ -26,11 +28,16 @@ class StudentsContainer extends Component {
         this.props.deleteUser(id);
     }
 
-    onSubmitClick = (result) => {
-        const dataLength = this.props.data.result.length ? this.props.data.result[this.props.data.result.length - 1].id + 1 : 1;
-        const newUserData = {...result, id: dataLength};
-        this.props.addUsers(newUserData);
+    onSubmitClick = (list) => {
+        this.props.addUsers({list, id: list.selectedId});
         this.hideModal();
+    }
+
+    onEditClick = (id) => {
+        this.setState({
+            showModal: true,
+            selectedId: id
+        })
     }
 
     render() {
@@ -41,11 +48,11 @@ class StudentsContainer extends Component {
                     <button className="btn btn-primary float-right" onClick={this.onAddClick}>Add Student</button>
                 </h1>
                 {this.props.data.result && this.props.data.result.length ?
-                    <StudentList list={this.props.data.result} onDeleteClick={this.onDeleteClick} /> : 
+                    <StudentList list={this.props.data.result} onEditClick={this.onEditClick} onDeleteClick={this.onDeleteClick} /> : 
                     <p>No data found</p>
                 }
 
-                <StudentsAdd show={this.state.showModal} onSubmitClick={this.onSubmitClick} hideModal={this.hideModal} />
+                <StudentsAdd show={this.state.showModal} list={this.props.data.result} selectedId={this.state.selectedId} onSubmitClick={this.onSubmitClick} hideModal={this.hideModal} />
             </div>
         )
     }

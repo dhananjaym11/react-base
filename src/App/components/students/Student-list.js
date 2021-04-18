@@ -23,7 +23,7 @@ const StudentList = (props) => {
                 <td>{student.standard}</td>
                 <td>{student.stream}</td>
                 <td>
-                    <Button variant="primary">Edit</Button>
+                    <Button variant="primary" onClick={()=>props.onEditClick(student.id)}>Edit</Button>
                     <Button variant="danger" onClick={()=>props.onDeleteClick(student.id)}>Delete</Button>
                 </td>
                 </tr>
