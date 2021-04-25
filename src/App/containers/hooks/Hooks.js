@@ -1,39 +1,33 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+
+import HookCounter from '../../components/hooks/hookCounter';
+import HookForm from '../../components/hooks/hookForm';
+import HookTitle from '../../components/hooks/hookTitle';
+import HookComponentWillUnmount from '../../components/hooks/hookComponentWillUnmount';
+import HookDataFetchInitially from '../../components/hooks/hookDataFetchInitially';
+import HookDataFetchOnButtonClick from '../../components/hooks/hookDataFetchOnButtonClick';
+import HookDataFetchUsingReducer from'../../components/hooks/hookDataFetchUsingReducer';
 
 export default function HooksContainer() {
-	const [counter, setCounter] = useState(0);
-	const [users, setUsers] = useState([]);
-
-	const increamentCounter = () => {
-		setCounter(counter+1)
-	}
-
-	async function fetchData() {
-	    const res = await fetch("https://api.github.com/users?since=");
-	    res.json()
-	      .then(res => setUsers(res));
-	}
-
-	useEffect(() => {
-	    fetchData();
-	}, []);
-
 	return (
 		<div>
 			<h1>Hooks</h1>
 			<hr/>
-			<h2>Basic</h2>
-			<h5>{counter}</h5>
-			<button onClick={increamentCounter}>Increament</button>
+			<HookCounter />
 			<hr/>
-			<h2>Api call on mount</h2>
-			<div>
-			{
-				users.map(user=> (
-					<div key={user.id}>{user.login}</div>
-				))
-			}
-			</div>
+			<HookForm />
+			<hr/>
+			<HookTitle />
+			<hr/>
+			<HookComponentWillUnmount />
+			<hr />
+			<HookDataFetchInitially />
+			<hr />
+			<HookDataFetchOnButtonClick />
+			<hr />
+			<HookDataFetchUsingReducer />
+			<hr />
+
 		</div>
 	)
 } 
