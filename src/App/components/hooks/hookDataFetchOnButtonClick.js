@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react'
 
-export default function hookDataFetchOnButtonClick() {
+export default function HookDataFetchOnButtonClick() {
 
     const [post, setPost] = useState({})
     const [id, setId] = useState(1)

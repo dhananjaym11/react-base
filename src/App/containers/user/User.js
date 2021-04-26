@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 
 import './User.css';
-import userService from '../../core/services/user.service';
+import * as userService from '../../core/services/user.service';
 import { removeUser } from '../../core/actions';
 import UserDetails from '../../components/user/UserDetails';
 
@@ -23,7 +23,7 @@ class UserContainer extends Component {
             <div>
                 <h1>
                     <Link to="/users">
-                        <i class="fa fa-long-arrow-left"></i>
+                        <i className="fa fa-long-arrow-left"></i>
                     </Link>
                     User Details </h1>
                 {this.props.data.result ?
@@ -37,7 +37,7 @@ class UserContainer extends Component {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         loadUser: (username) => {
-            dispatch(userService.loadUser(username))
+            dispatch(userService.loadUserFn(username))
         },
         removeUsers: () => {
             dispatch(removeUser())

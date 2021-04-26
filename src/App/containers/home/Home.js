@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import homeService from '../../core/services/home.service';
+import * as homeService from '../../core/services/home.service';
 
 const PageTitle = styled.h1`
     font-size: 30px;

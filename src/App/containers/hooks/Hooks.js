@@ -1,5 +1,3 @@
-import React from 'react';
-
 import HookCounter from '../../components/hooks/hookCounter';
 import HookForm from '../../components/hooks/hookForm';
 import HookTitle from '../../components/hooks/hookTitle';
@@ -27,7 +25,6 @@ export default function HooksContainer() {
 			<hr />
 			<HookDataFetchUsingReducer />
 			<hr />
-
 		</div>
 	)
 } 

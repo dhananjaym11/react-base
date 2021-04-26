@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import usersService from '../../core/services/users.service';
+import * as usersService from '../../core/services/users.service';
 import UserList from '../../components/users/UserList';
 
 class UsersContainer extends Component {
@@ -27,7 +27,7 @@ class UsersContainer extends Component {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         loadUsers: () => {
-            dispatch(usersService.loadUsers())
+            dispatch(usersService.loadUsersFn())
         }
     }
 }

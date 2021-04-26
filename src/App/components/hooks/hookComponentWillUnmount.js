@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Mouse from "./mouse";
 
 export default function HookComponentWillUnmount() {

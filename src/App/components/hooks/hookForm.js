@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-function HookForm() {
-
-  const [name, setName] = useState({ firstName: '', lastName: '' })
+export default function HookForm() {
+  const [name, setName] = useState({ firstName: '', lastName: '' });
+  
   return (
     <>
       <h2>Form</h2>
@@ -24,5 +24,3 @@ function HookForm() {
     </>
   )
 }
-
-export default HookForm;

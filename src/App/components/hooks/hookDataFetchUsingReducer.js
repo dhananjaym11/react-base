@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import { useReducer, useEffect } from "react";
 
 const initialState = {
   loading: true,
@@ -26,7 +26,7 @@ const reducer = (state, action) => {
   }
 };
 
-export default function hookDataFetchUsingReducer() {
+export default function HookDataFetchUsingReducer() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-export default function hookDataFetchInitially() {
+export default function HookDataFetchInitially() {
   const [post, setPost] = useState({});
 
   useEffect(() => {

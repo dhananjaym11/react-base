@@ -11,9 +11,7 @@ class SimpleContainer extends React.Component {
 			    return response.json();
 			}).then(data => {
 		        this.setState({data});
-		    }).catch(function(err) {
-		    	console.log('Fetch Error :-S', err);
-		  	});
+		    }).catch((err) => console.log('Fetch Error :-S', err));
     }
 
 	render() {

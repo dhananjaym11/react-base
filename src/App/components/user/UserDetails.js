@@ -1,5 +1,3 @@
-import React from 'react';
-
 const UserDetails = (props) => {
     const user = props.details;
     return (
