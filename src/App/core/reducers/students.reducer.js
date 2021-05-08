@@ -25,7 +25,8 @@ const reducer = (state = INITIAL_STATE, action) => {
                 const updatedList = {...list, id: latestId};
                 result = [...state.result, updatedList];
             } else {                
-                result = [...state.result.slice(0,id), list,...state.result.slice(id+1)];
+                const index = state.result.findIndex(result => result.id === id);
+                result = [...state.result.slice(0,index), list,...state.result.slice(index+1)];
             }
             return { ...state, result };
         case DELETE_STUDENT:

@@ -2,7 +2,7 @@ import { useState } from "react";
 import Mouse from "./mouse";
 
 export default function HookComponentWillUnmount() {
-  const [display, setDisplay] = useState(true);
+  const [display, setDisplay] = useState(false);
 
   return (
     <div>

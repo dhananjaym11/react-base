@@ -5,6 +5,8 @@ import HookComponentWillUnmount from '../../components/hooks/hookComponentWillUn
 import HookDataFetchInitially from '../../components/hooks/hookDataFetchInitially';
 import HookDataFetchOnButtonClick from '../../components/hooks/hookDataFetchOnButtonClick';
 import HookDataFetchUsingReducer from'../../components/hooks/hookDataFetchUsingReducer';
+import HookMemo from '../../components/hooks/hookMemo';
+import HookTodo from '../../components/hooks/hookTodo';
 
 export default function HooksContainer() {
 	return (
@@ -24,6 +26,10 @@ export default function HooksContainer() {
 			<HookDataFetchOnButtonClick />
 			<hr />
 			<HookDataFetchUsingReducer />
+			<hr />
+			<HookMemo />
+			<hr />
+			<HookTodo />
 			<hr />
 		</div>
 	)

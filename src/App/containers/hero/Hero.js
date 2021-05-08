@@ -40,11 +40,11 @@ class HeroContainer extends Component {
         const updatedHeroIndex = heroes.findIndex(hero => hero.id === updatedHero.id);
         heroes[updatedHeroIndex] = updatedHero;
         this.props.updateHeroes(heroes);
-        this.props.history.push('/heroes');
+        this.props.history.goBack();
     }
 
     cancelChanges = () => {
-        this.props.history.push('/heroes');        
+        this.props.history.goBack();        
     }
 
     render() {
